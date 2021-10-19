@@ -1,0 +1,20 @@
+{
+  "name": "online-library-team",
+  "version": "1.0.0",
+  "description": "- Senior fullstack developer - Гучигов Руслан - https://github.com/GRA4git\r - middle fullstack developer- Висингириев Мансур - https://github.com/Exc0m\r - middle backend developer - Сатуев Али - https://github.com/Satuev\r - strong junior developer - Атамазов Насир - https://github.com/Atamazow",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1"
+  }
+}
