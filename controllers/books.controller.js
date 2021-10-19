@@ -91,7 +91,7 @@ module.exports.booksController = {
       await Book.findByIdAndUpdate(req.params.bookId, {
         $set: {
           isArend: false,
-          user: "",
+          user: null,
         },
       });
       return res.json("Книга снята из аренды");
@@ -102,12 +102,14 @@ module.exports.booksController = {
   userBlock: async (req, res) => {
     try {
       await User.findByIdAndUpdate(req.params.userId, {
-        books: [],
+        $pull: {
+          books: req.params.bookId,
+        },
         isBlocked: true,
       });
       await Book.findByIdAndUpdate(req.params.bookId, {
-        user: "",
-        isBlocked: false,
+        user: null,
+        isArend: false,
       });
       res.json("Пользователь успешно заблокирован");
     } catch (e) {
