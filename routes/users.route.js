@@ -8,4 +8,4 @@ router.get("/", usersController.getUsers)
 router.patch("/:id", usersController.updateUser)
 router.delete("/:id", usersController.deleteUser)
 
-module.exports = router
+module.exports = router;
