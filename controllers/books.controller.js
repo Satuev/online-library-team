@@ -89,11 +89,14 @@ module.exports.booksController = {
         $pull: { books: req.params.bookId },
       });
       await Book.findByIdAndUpdate(req.params.bookId, {
-        isArend: false,
-        user: "",
+        $set: {
+          isArend: false,
+          user: "",
+        },
       });
+      return res.json("Книга снята из аренды");
     } catch (e) {
-      res.json(e);
+      return res.json(e);
     }
   },
   userBlock: async (req, res) => {
