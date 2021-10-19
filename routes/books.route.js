@@ -10,7 +10,7 @@ router.patch("/user/:userId/book/:bookId/rent", booksController.arendBook);
 router.patch("/user/:userId/book/:bookId/passRent", booksController.passBook);
 router.patch("/admin/book/:id", booksController.updateBook);
 router.patch(
-  "/admin/user/:userId/book/:bookId/block",
+  "/admin/user/:userId/block",
   booksController.userBlock
 );
 router.delete("/admin/book/:id", booksController.deleteBook);

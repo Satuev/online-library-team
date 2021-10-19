@@ -101,15 +101,16 @@ module.exports.booksController = {
   },
   userBlock: async (req, res) => {
     try {
-      await User.findByIdAndUpdate(req.params.userId, {
-        $pull: {
-          books: req.params.bookId,
-        },
-        isBlocked: true,
+      const arendBooks = await User.findById(req.params.userId);
+      arendBooks.books.map(async (item) => {
+        await Book.findByIdAndUpdate(item, {
+          user: null,
+          isArend: false,
+        });
       });
-      await Book.findByIdAndUpdate(req.params.bookId, {
-        user: null,
-        isArend: false,
+      await User.findByIdAndUpdate(req.params.userId, {
+        books: [],
+        isBlocked: true,
       });
       res.json("Пользователь успешно заблокирован");
     } catch (e) {
